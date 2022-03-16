@@ -63,7 +63,7 @@ export default {
   background-image: url("@/assets/heroimg.png");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  min-height: 100vh;
   background-position: bottom center;
   display: flex;
   align-items: center;
