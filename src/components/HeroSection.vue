@@ -9,7 +9,7 @@
         tempor incididunt ut labore.
       </h3>
       <div
-        class="flex items-center justify-center pt-14 sm:inline-block flex-col"
+        class="flex items-center justify-center pt-14 pb-14 sm:pb-0 sm:inline-block flex-col"
       >
         <a
           class="
