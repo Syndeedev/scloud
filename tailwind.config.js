@@ -22,6 +22,10 @@ module.exports = {
         'scloudblue': '#2666CF',
         'scloudblue-light': '#E6EFFF',
         'scloudblue-dark': '#1C417E',
+      },
+      maxHeight: {
+        '500': '31.25rem',
+        '700': '43.75rem',
       }
     },
    

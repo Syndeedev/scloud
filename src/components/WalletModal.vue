@@ -2,12 +2,12 @@
   <section>
     <div
       v-if="modalOpen"
-      class="modal"
+      class="modal "
       role="dialog"
       aria-modal="true"
       @click.self="close()"
     >
-      <div class="modal__content pb-6 " :class="size || 'modal--sm'">
+      <div class="modal__content pb-6 max-h-500 xl:max-h-700 scroll " :class="size || 'modal--sm'">
         <div class="flex modal_header justify-between items-center py-4 lg:flex mx-4 sm:mx-8">
           <h1 class="text-2xl sm:text-3xl">{{walletHeader}}</h1>
           <img @click="close()" class="cursor-pointer" alt="x" src="@/assets/icons/x.svg" />
@@ -128,5 +128,23 @@ export default {
 }
 .modal_header{
   border-bottom: 2px solid #EDEDED;
+}
+.scroll {
+  /* max-height: 700px; */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+.scroll::-webkit-scrollbar {
+  background: transparent !important;
+  width: 5px;
+  height: 8px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background: #c4c4c4 !important;
+  max-height: 20px !important;
+  border-radius: 6px;
 }
 </style>
