@@ -7,8 +7,33 @@
       aria-modal="true"
       @click.self="close()"
     >
-      <div class="modal__content" :class="size || 'modal--sm'">
-        <h1>i am a modal</h1>
+      <div class="modal__content pb-6 " :class="size || 'modal--sm'">
+        <div class="flex modal_header justify-between items-center py-4 lg:flex mx-4 sm:mx-8">
+          <h1 class="text-2xl sm:text-3xl">{{walletHeader}}</h1>
+          <img @click="close()" class="cursor-pointer" alt="x" src="@/assets/icons/x.svg" />
+        </div>
+        <div class="w-full lg:flex p-4 sm:p-8">
+          <div
+            class="w-full lg:w-1/2 flex items-center justify-center lg:pr-5 lg:block"
+          >
+          <slot></slot>
+          </div>
+
+          <div
+            class="w-full lg:w-1/2 mt-10 lg:mt-0 flex items-center lg:ml-4 justify-center flex-col text-center lg:px-6 pt-10 colTwo"
+          >
+            <img alt="wallet" src="@/assets/icons/wallet.svg" />
+            <h3 class="text-2xl pt-4 pb-3">What is a wallet?</h3>
+            <h4 class="text-xl pb-8">Your wallet is your login identity</h4>
+            <h6 class="sm:w-352">
+              Your wallet is both a storage for your digital assets and your
+              login access. With our decentralized solution, you do not need to
+              create an account, just connect your wallet. <br /><br />
+              We do not have access to your wallet privacy keys and password.
+            </h6>
+            <a class="pt-6 pb-4" href="#">Learn More </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -16,24 +41,27 @@
 
 <script>
 export default {
-    name:"connectWallet",
-    props:{
-        size: String,
-        modalOpen: {
-            type: Boolean,
-            default: false,
-        }
+  name: "connectWallet",
+  props: {
+    size: String,
+    modalOpen: {
+      type: Boolean,
+      default: false,
     },
-    methods:{
-        close(){
-            this.$emit('closeModal', false)
-        }
-    }
-
-}
+    walletHeader: {
+      type: String,
+      default: "Connect your wallet",
+    },
+  },
+  methods: {
+    close() {
+      this.$emit("closeModal", false);
+    },
+  },
+};
 </script>
 
-<style  scoped>
+<style scoped>
 .modal {
   width: 100%;
   height: 100%;
@@ -54,7 +82,7 @@ export default {
   min-height: 400px;
 }
 .modal--md {
-  width: 460px;
+  width: 1000px;
   min-height: 400px;
 }
 
@@ -70,4 +98,35 @@ export default {
 /* &:focus {
       outline: none;
     } */
+.colTwo {
+  background: #fbfbfb;
+  border-radius: 24px;
+}
+.colTwo h3, .modal_header h1 {
+  font-family: "Nexa Extra Bold";
+  font-style: normal;
+  font-weight: 800;
+  line-height: 150%;
+  text-align: center;
+
+  color: #000000;
+}
+.colTwo h4 {
+  font-family: "Nexa Bold";
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  color: #2666cf;
+}
+.colTwo a {
+  font-family: "Nexa Bold";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration-line: underline;
+  color: #2666cf;
+}
+.modal_header{
+  border-bottom: 2px solid #EDEDED;
+}
 </style>
