@@ -26,7 +26,8 @@
                     Connect Wallet</a>
       </div>
       <div class="md:hidden cursor-pointer" @click="dropdownMenuIsVisible = !dropdownMenuIsVisible" >
-        <img src="@/assets/icons/hamburger.svg">
+        <img v-if="!dropdownMenuIsVisible" width="21" height="15" alt="menu" src="@/assets/icons/hamburger.svg">
+        <img v-if="dropdownMenuIsVisible" width="21" height="15"  alt="x" src="@/assets/icons/x.svg" />
       </div>
       <div
         class="block md:hidden  bg-white fixed w-fit shadow right-2 top-14"
