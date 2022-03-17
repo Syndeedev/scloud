@@ -99,8 +99,8 @@
       <template>
         <div class="colOne text-center">
           <div v-for="(item, index) in walletTypes" :key="index">
-            <div class="wallet my-2 py-4 ">
-              <img style="height:40px;" class="mx-14" :src="item.image">
+            <div class="wallet my-2 py-4 justify-center sm:justify-start ">
+              <img style="height:40px;" class="sm:mx-14" :src="item.image">
               <h2 class="pl-2">{{ item.name }}</h2>
             </div>
           </div>
@@ -127,8 +127,8 @@
             <p>Scloud is compatible with any Ethereum wallet. 
                 We recommend Metamask on desktop and Android, and Rainbow on iOS.</p>
           <div v-for="(item, index) in createWalletTypes" :key="index">
-            <div class="wallet my-2 py-4">
-              <img style="height:40px;" class="mx-14" :src="item.image">
+            <div class="wallet my-2 py-4 justify-center sm:justify-start">
+              <img style="height:40px;" class="sm:mx-14" :src="item.image">
               <h2 class="pl-2">{{ item.name }}</h2>
             </div>
           </div>
