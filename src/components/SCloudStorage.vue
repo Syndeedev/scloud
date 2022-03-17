@@ -1,5 +1,5 @@
 <template>
-  <section class="section">
+  <section id="about" class="section">
     <div class="main-card p-4 sm:p-12 md:p-20 lg:p-28">
       <div
         class="

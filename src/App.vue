@@ -1,9 +1,34 @@
 <template>
   <div id="app">
-    <!-- <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav> -->
+    <nav class="flex items-center justify-between fixed px-6 sm:px-10 md:px-12 lg:px-24 xl:px-24 py-6">
+      <div>
+       <a href="/"> <img src="@/assets/icons/S-CLOUD.png" alt="s-cloud"></a>
+      </div>
+      <div class="md:flex items-center justify-center hidden">
+        <router-link class="mx-4" to="#features">Features</router-link> 
+        <router-link class="mx-4" to="#about">About Scloud</router-link>
+        <router-link class="mx-4" to="#about">How it works</router-link>
+        <a href="#about"
+                    class="
+                      inline-block
+                      bg-scloudblue
+                      hover:bg-scloudblue-dark
+                      border border-scloudblue
+                      text-white text-base
+                      no-underline
+                      font-semibold
+                      w-48
+                      text-center
+                      py-3
+                      rounded-lg
+                    "
+                  >
+                    Connect Wallet</a>
+      </div>
+      <div class="md:hidden" >
+        <img src="@/assets/icons/hamburger.svg">
+      </div>
+    </nav>
     <router-view/>
   </div>
 </template>
@@ -33,15 +58,21 @@
 }
 
 nav {
-  /* padding: 30px; */
+  background: #ffffff;
+  width: 100%;
+  /* max-width: 1500px; */
+ 
 }
 
 nav a {
-  font-weight: bold;
-  color: #2c3e50;
+  
+  color: #727272;
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: #2666CF;
+  font-weight: bold;
+  /* padding-bottom: 20px; */
+  border-bottom: 3px solid #2666CF;
 }
 </style>

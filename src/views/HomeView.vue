@@ -46,7 +46,7 @@ export default {
   },
   data() {
     return {
-      openModal: true,
+      openModal: false,
       walletTypes:[
         "Metamask","Wallet Connect","Trust Wallet","Coinbase"
       ]
