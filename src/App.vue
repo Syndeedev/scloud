@@ -25,13 +25,51 @@
                   >
                     Connect Wallet</a>
       </div>
-      <div class="md:hidden" >
+      <div class="md:hidden cursor-pointer" @click="dropdownMenuIsVisible = !dropdownMenuIsVisible" >
         <img src="@/assets/icons/hamburger.svg">
+      </div>
+      <div
+        class="block md:hidden  bg-white fixed w-fit shadow right-2 top-14"
+        :class="dropdownMenuIsVisible ? 'block' : 'hidden'"
+      >
+       <div class="flex flex-col p-4 text-center">
+      
+        <router-link class="m-2" to="#features">Features</router-link> 
+        <router-link class="m-2" to="#about">About Scloud</router-link>
+        <router-link class="m-2" to="#about">How it works</router-link>
+         <a href="#about"
+                    class="
+                      inline-block
+                      bg-scloudblue
+                      hover:bg-scloudblue-dark
+                      border border-scloudblue
+                      text-white text-base
+                      no-underline
+                      font-semibold
+                      w-48
+                      text-center
+                      py-3
+                      m-2
+                      rounded-lg
+                    "
+                  >
+                    Connect Wallet</a>
+
+       </div>
       </div>
     </nav>
     <router-view/>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      dropdownMenuIsVisible: false,
+    }
+  }
+}
+</script>
 
 <style >
 @font-face {
