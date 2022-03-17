@@ -23,7 +23,7 @@
         <router-link class="mx-4" to="#about">How it works</router-link>
         <a
           style="color: white"
-          @click="openModal = true"
+          @click="openModalOne = true"
           class="
             inline-block
             bg-scloudblue
@@ -70,7 +70,7 @@
           <router-link class="m-2" to="#about">How it works</router-link>
           <a
             style="color: white"
-            @click="openModal = true"
+            @click="openModalOne = true"
             class="
               inline-block
               bg-scloudblue
@@ -92,19 +92,20 @@
       </div>
     </nav>
     <wallet-modal
-      :modalOpen="openModal"
-      @closeModal="openModal = $event"
+      :modalOpen="openModalOne"
+      @closeModal="openModalOne = $event"
       :size="'modal--md'"
     >
       <template>
         <div class="colOne text-center">
           <div v-for="(item, index) in walletTypes" :key="index">
-            <div class="wallet my-2 py-4">
-              <h2>{{ item }}</h2>
+            <div class="wallet my-2 py-4 ">
+              <img style="height:40px;" class="mx-14" :src="item.image">
+              <h2 class="pl-2">{{ item.name }}</h2>
             </div>
           </div>
           <div class="pt-4">
-            <a>Get a wallet</a>
+            <a @click="createNewWallet()">Get a wallet</a>
           </div>
           <div class="flex items-center justify-center">
             <h4 class="pt-8 sm:w-392">
@@ -112,6 +113,29 @@
               <span>terms of use</span> and <span>privacy policy</span>.
             </h4>
           </div>
+        </div>
+      </template>
+    </wallet-modal>
+    <wallet-modal
+      :modalOpen="openModalTwo"
+      @closeModal="openModalTwo = $event"
+      :size="'modal--md'"
+      :walletHeader="'Create new wallet'"
+    >
+      <template>
+        <div class="colOne">
+            <p>Scloud is compatible with any Ethereum wallet. 
+                We recommend Metamask on desktop and Android, and Rainbow on iOS.</p>
+          <div v-for="(item, index) in createWalletTypes" :key="index">
+            <div class="wallet my-2 py-4">
+              <img style="height:40px;" class="mx-14" :src="item.image">
+              <h2 class="pl-2">{{ item.name }}</h2>
+            </div>
+          </div>
+          <div class="pt-4 text-center">
+            <a @click="connectWallet()">I have a wallet</a>
+          </div>
+          
         </div>
       </template>
     </wallet-modal>
@@ -125,13 +149,51 @@ export default {
   data() {
     return {
       dropdownMenuIsVisible: false,
-      openModal: false,
-      walletTypes: ["Metamask", "Wallet Connect", "Trust Wallet", "Coinbase"],
+      openModalOne: false,
+      openModalTwo: false,
+      walletTypes: [
+          {
+            name:"Metamask",
+            image: require('@/assets/icons/MetaMask.png')
+          },
+          {
+            name:"Wallet Connect",
+            image: require('@/assets/icons/walletConnect.png')
+          },
+          {
+            name:"Trust Wallet",
+            image: require('@/assets/icons/trust.png')
+          },
+          {
+            name:"Coinbase",
+            image: require('@/assets/icons/coinbase.png')
+          }
+        ],
+      createWalletTypes: [
+        {
+            name:"Metamask",
+            image: require('@/assets/icons/MetaMask.png')
+          },
+          {
+            name:"Rainbow",
+            image: require('@/assets/icons/rainbow.png')
+          }
+        ],
     };
   },
   components: {
     WalletModal,
   },
+  methods:{
+      createNewWallet(){
+          this.openModalOne = false
+          this.openModalTwo = true
+      },
+      connectWallet(){
+          this.openModalOne = true
+          this.openModalTwo = false
+      }
+  }
 };
 </script>
 
@@ -157,7 +219,7 @@ nav a.router-link-exact-active {
   border: 2px solid #ffffff;
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   cursor: pointer;
 }
 .wallet:hover {
