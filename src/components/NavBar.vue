@@ -99,7 +99,7 @@
       <template>
         <div class="colOne text-center">
           <div v-for="(item, index) in walletTypes" :key="index">
-            <div class="wallet my-2 py-4 justify-center sm:justify-start ">
+            <div  @click="connectSelectedWallet(item.name)" class="wallet my-2 py-4 justify-center sm:justify-start ">
               <img style="height:40px;" class="sm:mx-14" :src="item.image">
               <h2 class="pl-2">{{ item.name }}</h2>
             </div>
@@ -127,7 +127,7 @@
             <p>Scloud is compatible with any Ethereum wallet. 
                 We recommend Metamask on desktop and Android, and Rainbow on iOS.</p>
           <div v-for="(item, index) in createWalletTypes" :key="index">
-            <div class="wallet my-2 py-4 justify-center sm:justify-start">
+            <div @click="createSelectedWallet(item.name)" class="wallet my-2 py-4 justify-center sm:justify-start">
               <img style="height:40px;" class="sm:mx-14" :src="item.image">
               <h2 class="pl-2">{{ item.name }}</h2>
             </div>
@@ -192,6 +192,12 @@ export default {
       connectWallet(){
           this.openModalOne = true
           this.openModalTwo = false
+      },
+      createSelectedWallet(value){
+          console.log(value)
+      },
+      connectSelectedWallet(value){
+        console.log(value)
       }
   }
 };
